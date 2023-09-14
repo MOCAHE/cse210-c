@@ -23,14 +23,6 @@ class Program
             }
         }
 
-        // This part is to verify the content of the list
-        Console.WriteLine();
-        Console.WriteLine("Numbers entered: ");
-        foreach (float number in numbers)
-        {
-            Console.WriteLine(number);
-        }
-
         //Compute the sum, or total, of the numbers in the list.
         Console.WriteLine();
         float sum = 0;
@@ -46,22 +38,29 @@ class Program
 
         //Find the maximum, or largest, number in the list.
         Console.WriteLine($"The largest number is: {numbers.Max()}");
-        Console.WriteLine();
 
         //Have the user both positive and negative numbers, 
         //then find the smallest positive number.
-        float min = numbers[^1];
-
-        Console.WriteLine(min);
+        // THIS CODE DOESN'T WORK IF YOU USE ONLY NEGATIVE NUMBERS
+        float min = float.MaxValue;
         foreach (float number in numbers)
         {
-            if (number < min && number > 0)
+            if (number > 0 && number < min)
             {
                 min = number;
             }
         }
-        Console.WriteLine($"The minimum positive number is {min}");
+        Console.WriteLine($"The minimum positive number is: {min}");
+        Console.WriteLine();
+
         //Sort the numbers in the list and display the new
         //sorted list. (Use libraries)
+        Console.WriteLine("Entered numbers sorted: ");
+        numbers.Sort();
+        foreach (float number in numbers)
+        {
+            Console.WriteLine(number);
+        }
+        Console.WriteLine();
     }
 }
