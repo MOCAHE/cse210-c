@@ -12,13 +12,14 @@ public class Entry
     //I had no idea of how to use the constructor method. 
     public Entry()
     {
-        PromptGenerator chatgpt = new();
+        PromptGenerator chatgpt = new PromptGenerator();
         _promptText = chatgpt.GetRandomPrompt();
     }
 
     public void DisplayEntries()
     {
-        Console.WriteLine($"{_date} - {_promptText}");
-        Console.WriteLine($"                {_entryText}");
+        Console.WriteLine($"Date: {_date} - {_promptText}");
+        Console.WriteLine($"{_entryText}");
+        Console.WriteLine();
     }
 }

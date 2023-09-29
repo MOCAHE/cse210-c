@@ -8,8 +8,7 @@ class Program
         Console.WriteLine();
 
         Console.WriteLine("Welcome to the Journal Program!");
-        Journal journal = new();
-
+        Journal journal = new Journal();
 
         while (true)
         {
@@ -20,25 +19,21 @@ class Program
             Console.WriteLine("4. Save");
             Console.WriteLine("5. Quit");
             Console.Write("What would you like to do? ");
-
             int choice = int.Parse(Console.ReadLine());
 
             switch (choice)
             {
                 case 1:
-                    PromptGenerator chatgpt = new PromptGenerator();
-                    string randomPrompt = chatgpt.GetRandomPrompt();
-                    Console.WriteLine(randomPrompt);
-
-
-                    Console.WriteLine("Enter your journal entry: ");
-                    string entryText = Console.ReadLine();
-                    Entry newEntry = new Entry();
-                    journal.AddEntry(newEntry);
+                    Entry nuevaEntrada = new Entry();
+                    PromptGenerator nuevoGet = new PromptGenerator();
+                    nuevaEntrada._promptText = nuevoGet.GetRandomPrompt();
+                    Console.WriteLine(nuevaEntrada._promptText);
+                    nuevaEntrada._entryText = Console.ReadLine();
+                    journal.AddEntry(nuevaEntrada);
+                    Console.WriteLine();
                     break;
 
                 case 2:
-                    Console.WriteLine("Entries: ");
                     journal.DisplayAllEntries();
                     break;
 
@@ -56,13 +51,9 @@ class Program
 
                 case 5:
                     Console.WriteLine("See you!");
+                    Console.WriteLine();
                     return;
             }
         }
     }
 }
-
-
-// HAY UN PROBLEMA CON LA LOGICA DE ALGUNA DE LAS CLASES.
-// NO SE ALMACENAN LOS ARCHIVOS
-// CUANDO IMPRIMES LAS ENTRADAS SE IMPRIMEN PROMPT ALEATORIOS (SEGURAMENTE RELACIONADO A LO ANTERIOR)

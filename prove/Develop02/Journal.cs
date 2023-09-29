@@ -33,7 +33,7 @@ public class Journal
             foreach (Entry entry in _entries)
             {
                 ouputFile.WriteLine($"{entry._date} - {entry._promptText}");
-                ouputFile.WriteLine($"                {entry._entryText}");
+                ouputFile.WriteLine($"{entry._entryText}");
                 ouputFile.WriteLine();
             }
         }
@@ -60,7 +60,6 @@ public class Journal
                 }
                 else if (_entries.Count > 0)
                 {
-                    // Si hay al menos una entrada, agrega el texto a la última entrada creada
                     Entry lastEntry = _entries[_entries.Count - 1];
                     lastEntry._entryText += linea + "\n";
                 }
