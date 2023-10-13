@@ -54,6 +54,8 @@ class Program
                     Console.WriteLine();
                     return;
             }
+            // Introducir una pausa para reducir la carga de la CPU cuando el programa está inactivo.
+            Thread.Sleep(1000); // Pausa de 1 segundo (ajusta el valor según tus necesidades).
         }
     }
 }
