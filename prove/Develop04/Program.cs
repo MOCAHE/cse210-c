@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 
 class Program
 {
@@ -15,20 +16,28 @@ class Program
             Console.WriteLine(" 3. Start listing activity");
             Console.WriteLine(" 4. Quit");
             Console.WriteLine("Select a choise from the menu: ");
-            int options = int.Parse(Console.ReadLine());
+
+            int options;
+            if (!int.TryParse(Console.ReadLine(), out options))
+            {
+                Console.WriteLine("Invalid choice. Please enter a valid option.");
+                continue;
+            }
 
             switch (options)
             {
                 case 1:
-
+                    BreathingActivity b1 = new BreathingActivity();
+                    b1.Run();
                     break;
 
                 case 2:
-
+                    ReflectionActivity r1 = new ReflectionActivity();
+                    r1.Run();
                     break;
 
                 case 3:
-
+                    ListingActivity l1 = new ListingActivity();
                     break;
 
                 case 4:
@@ -42,3 +51,5 @@ class Program
         }
     }
 }
+
+//SOLO FALTA HACER COINCIDIR LOS TEXTOS DEL VIDEO CON EL PROGRAMA VOY EN OPCION 2
