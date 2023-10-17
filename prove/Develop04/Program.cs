@@ -15,7 +15,7 @@ class Program
             Console.WriteLine(" 2. Start reflection activity");
             Console.WriteLine(" 3. Start listing activity");
             Console.WriteLine(" 4. Quit");
-            Console.WriteLine("Select a choise from the menu: ");
+            Console.Write("Select a choise from the menu: ");
 
             int options;
             if (!int.TryParse(Console.ReadLine(), out options))
@@ -23,6 +23,7 @@ class Program
                 Console.WriteLine("Invalid choice. Please enter a valid option.");
                 continue;
             }
+            Console.Clear();
 
             switch (options)
             {
@@ -38,6 +39,7 @@ class Program
 
                 case 3:
                     ListingActivity l1 = new ListingActivity();
+                    l1.Run();
                     break;
 
                 case 4:

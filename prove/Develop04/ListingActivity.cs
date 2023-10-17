@@ -8,7 +8,7 @@ public class ListingActivity : Activity
     private int _count;
     public Random _random = new();
 
-    public ListingActivity() : base("Listening Activity", "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.")
+    public ListingActivity() : base("Listing", "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.")
     {
         _prompts = new List<string>
         {
@@ -58,18 +58,19 @@ public class ListingActivity : Activity
             Console.Write("> "); // Indicate to the user where to type
             string entry = Console.ReadLine();
 
-            if (DateTime.Now >= endTime)
-            {
-                break;
-            }
-
             if (!string.IsNullOrWhiteSpace(entry))
             {
                 userInput.Add(entry);
                 _count++;
             }
-        }
 
+            if (DateTime.Now >= endTime)
+            {
+                break;
+            }
+
+            //ESTO CÓDIGO NO SIRVE SI NO SE INGRESA NADA EN EL TIEMPO DADO
+        }
         return userInput;
     }
 
@@ -78,6 +79,7 @@ public class ListingActivity : Activity
     {
         _count = 0;
         DisplayStartingMessage();
+        
         Console.WriteLine("List as many responses you can to the following prompt: ");
         Console.WriteLine($" --- {GetRandomPrompt()} ---");
         Console.WriteLine();

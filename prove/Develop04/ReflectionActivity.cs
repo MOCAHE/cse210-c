@@ -9,7 +9,7 @@ public class ReflectionActivity : Activity
     public Random _random = new();
 
     public ReflectionActivity()
-        : base("Reflection Activity", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.")
+        : base("Reflection", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.")
     {
         InitializePromptsAndQuestions();
     }
@@ -62,9 +62,6 @@ public class ReflectionActivity : Activity
 
     public void Run()
     {
-        Console.Write($"How long, in seconds, would you like for your session? ");
-        _duration = int.Parse(Console.ReadLine());
-
         DisplayStartingMessage();
         Console.WriteLine("Consider the following prompt:");
         Console.WriteLine();
@@ -82,7 +79,6 @@ public class ReflectionActivity : Activity
         CountDown(10);
         Console.WriteLine();
         Console.WriteLine();
-        Console.Clear();
 
         int timeForOneQuestionInSeconds = 10;
         int tiempoTotal = 0;
@@ -94,7 +90,7 @@ public class ReflectionActivity : Activity
                 InitializePromptsAndQuestions(); // Rellenar la lista si está vacía
             }
 
-            Console.Write($"> {GetRandomQuestion()}");
+            Console.Write($"> {GetRandomQuestion()} ");
             LogIndicator(10);
             Console.WriteLine();
 
@@ -108,5 +104,6 @@ public class ReflectionActivity : Activity
             }
         }
         Console.WriteLine();
+        DisplayEndingMesagge();
     }
 }
