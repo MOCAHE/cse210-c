@@ -32,11 +32,11 @@ class Program
 
         foreach (Video video in listaDeVideos)
         {
-            Console.WriteLine(video.DisplayCommentsDetail());
+            Console.WriteLine(video.DisplayVideoDetail());
             Console.WriteLine("Comments:");
             foreach (Comment comment in video.GetComments())
             {
-                Console.WriteLine(comment.DisplayVideoDetail());
+                Console.WriteLine(comment.DisplayCommentsDetail());
             }
             Console.WriteLine("--------------");
         }

@@ -24,7 +24,7 @@ public class Comment
         set { _commentContent = value; }
     }
 
-    public string DisplayVideoDetail()
+    public string DisplayCommentsDetail()
     {
         return $"@{_commenterName}: \n{_commentContent}\n";
     }

@@ -35,6 +35,10 @@ public class Video
         set { _length = value; }
     }
 
+    //Agregue estos metodos aquí porque
+    //se relacionan más con la lógica
+    // de los videos que con el comportamiento
+    // de cada comentario.
     public void AddComment(Comment comment)
     {
         _comments.Add(comment);
@@ -50,7 +54,7 @@ public class Video
         return _comments;
     }
 
-    public string DisplayCommentsDetail()
+    public string DisplayVideoDetail()
     {
         return $"Title: {_title}\nAuthor: {_author}\nLength: {_length} seconds\n";
     }
